@@ -7,7 +7,7 @@ async function handleShortUrlGenerator(req, res) {
   if (!body.url) {
     return res.status(400).json({ error: "url feild is required!" });
   }
-  url.create({
+  await url.create({
     shortId: shortURL,
     redirectURL: body.url,
     visitHistory: [],
