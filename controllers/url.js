@@ -14,5 +14,15 @@ async function handleShortUrlGenerator(req, res) {
   });
   return res.status(201).json({ id: shortURL });
 }
+async function getAnaytics(req, res) {
+  const Id = req.params.id;
+ 
+  const result = await url.findOne({ shortId :Id});
+  console.log(result)
+  res.json({
+    total_clicks: result?.visitHistory.length,
+    analytics: result?.visitHistory,
+  });
+}
 
-module.exports = { handleShortUrlGenerator };
+module.exports = { handleShortUrlGenerator, getAnaytics };

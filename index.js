@@ -24,6 +24,7 @@ app.get("/url/:shortId", async (req, res) => {
   );
   res.redirect(entry.redirectURL);
 });
+
 app.listen(port, () => {
   console.log("app is running on port 8001");
 });
